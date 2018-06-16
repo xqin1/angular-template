@@ -2,11 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { OverlayModule } from '@angular/cdk/overlay';
-import { MatButtonModule } from '@angular/material/button';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatIconModule } from '@angular/material/icon';
-import {MatInputModule} from '@angular/material/input';
-import {MatDialogModule} from '@angular/material/dialog';
+import {MatDialogModule} from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
@@ -28,7 +24,7 @@ import { FeedbackDialogComponent } from './feedback-dialog/feedback-dialog.compo
   ],
   imports: [
     BrowserModule, BrowserAnimationsModule, OverlayModule, FormsModule,
-    MatButtonModule, MatDialogModule, MatIconModule, MatInputModule, MatToolbarModule,
+    MatDialogModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
   ],
