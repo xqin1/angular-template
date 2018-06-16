@@ -1,0 +1,18 @@
+<div id='submit-parent-form' *ngIf='feedbackStatus$ | async as status; else loading'>
+  <div id='feedback-enter-form' *ngIf='status===1 || status===3'>
+    <app-enter-feedback
+      [enteredFeedback] = 'feedbackText$ | async'
+      (feedbackEnterFinish) = 'onFeedbackEnterFinish($event)' >
+    </app-enter-feedback>
+  </div>
+  <div id='feedback-submit-form' *ngIf='status===2'>
+    <app-submit-feedback
+      [enteredFeedback] = 'feedbackText$ | async'
+      (feedbackEnterEdit) = 'onFeedbackEdit($event)'
+      (feedbackSubmit) = 'onFeedbackSubmit($event)'>
+    </app-submit-feedback>
+  </div>
+</div>
+<ng-template #loading>
+  Loading stuff...
+</ng-template>

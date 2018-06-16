@@ -1,5 +1,5 @@
 #feedback {
-    resize: none;
+    resize: both;
     height: 500px;
     width: 90%;
 }

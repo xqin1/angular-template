@@ -1,16 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-enter-feedback',
   templateUrl: './enter-feedback.component.html',
-  styleUrls: ['./enter-feedback.component.css']
-})
-export class EnterFeedbackComponent {
+  styleUrls: ['./enter-feedback.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 
-  enteredFeedback: string;
+})
+export class EnterFeedbackComponent implements OnInit {
+  @Input() enteredFeedback: string;
+  @Output() feedbackEnterFinish = new EventEmitter<String>();
 
   done() {
-    // TODO: Transition to SubmitFeedbackComponent to verify feedback
+    this.feedbackEnterFinish.emit(this.enteredFeedback);
+  }
+  ngOnInit() {
   }
 
 }
